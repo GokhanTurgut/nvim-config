@@ -327,7 +327,7 @@ vim.keymap.set({ 'n' }, "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Dec
 vim.keymap.set({ 'n' }, "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
+  local opts = { buffer = 0 }
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
   vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
@@ -436,10 +436,10 @@ vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'ruby' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
+    auto_install = true,
 
     highlight = { enable = true },
     indent = { enable = true },
@@ -486,15 +486,15 @@ vim.defer_fn(function()
           ['[]'] = '@class.outer',
         },
       },
-      swap = {
-        enable = true,
-        -- swap_next = {
-        --   ['<leader>a'] = '@parameter.inner',
-        -- },
-        -- swap_previous = {
-        --   ['<leader>A'] = '@parameter.inner',
-        -- },
-      },
+      -- swap = {
+      --   enable = true,
+      --   swap_next = {
+      --     ['<leader>a'] = '@parameter.inner',
+      --   },
+      --   swap_previous = {
+      --     ['<leader>A'] = '@parameter.inner',
+      --   },
+      -- },
     },
   }
 end, 0)
