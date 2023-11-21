@@ -329,6 +329,33 @@ require('lazy').setup({
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
+
+      -- Adds copilot support
+      {
+        "zbirenbaum/copilot-cmp",
+        dependencies = "copilot.lua",
+        opts = {},
+        config = function(_, opts)
+          local copilot_cmp = require("copilot_cmp")
+          copilot_cmp.setup(opts)
+          -- attach cmp source whenever copilot attaches
+          -- fixes lazy-loading issues with the copilot cmp source
+          local on_attach = function(on_attach_func)
+            vim.api.nvim_create_autocmd("LspAttach", {
+              callback = function(args)
+                local buffer = args.buf ---@type number
+                local client = vim.lsp.get_client_by_id(args.data.client_id)
+                on_attach_func(client, buffer)
+              end,
+            })
+          end
+          on_attach(function(client)
+            if client.name == "copilot" then
+              copilot_cmp._on_insert_enter({})
+            end
+          end)
+        end,
+      },
     },
   },
 
@@ -864,6 +891,11 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    {
+      name = "copilot",
+      group_index = 1,
+      priority = 100,
+    },
   },
 }
 
