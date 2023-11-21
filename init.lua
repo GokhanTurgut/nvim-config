@@ -893,6 +893,13 @@ local servers = {
 -- Setup neovim lua configuration
 require('neodev').setup()
 
+-- Setup indentscope
+require('mini.indentscope').setup({
+  symbol = "│",
+  options = { try_as_border = true },
+  draw = { animation = require('mini.indentscope').gen_animation.none() },
+})
+
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
