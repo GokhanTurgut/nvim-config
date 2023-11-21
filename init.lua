@@ -535,6 +535,8 @@ require('which-key').register {
   ['<leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
   ['<leader>f'] = { name = 'Find', _ = 'which_key_ignore' },
   ['<leader>l'] = { name = 'LSP', _ = 'which_key_ignore' },
+  ['<leader>b'] = { name = 'Buffers', _ = 'which_key_ignore' },
+  ['<leader>h'] = { name = 'Harpoon', _ = 'which_key_ignore' },
 }
 
 -- mason-lspconfig requires that these setup functions are called in this order
