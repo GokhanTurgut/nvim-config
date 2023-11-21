@@ -280,6 +280,20 @@ require('lazy').setup({
   },
 
   {
+    "folke/zen-mode.nvim",
+    keys = {
+      { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" },
+    },
+    opts = {
+      window = {
+        width = 160,
+      },
+      plugins = {
+        gitsigns = { enabled = true },
+      },
+    },
+  },
+  {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
