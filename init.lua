@@ -329,12 +329,30 @@ require('lazy').setup({
     end,
   },
 
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    event = "VeryLazy",
     opts = {
-      window = {
-        width = 160,
+      indent = {
+        char = "│",
+        tab_char = "│",
       },
-      plugins = {
-        gitsigns = { enabled = true },
+      scope = { enabled = false },
+      exclude = {
+        filetypes = {
+          "help",
+          "alpha",
+          "dashboard",
+          "neo-tree",
+          "Trouble",
+          "trouble",
+          "lazy",
+          "mason",
+          "notify",
+          "toggleterm",
+          "lazyterm",
+        },
       },
     },
   },
