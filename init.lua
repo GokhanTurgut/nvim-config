@@ -83,7 +83,6 @@ require('lazy').setup({
   },
 
   {
-    -- Neotree
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
@@ -98,30 +97,30 @@ require('lazy').setup({
         function()
           require("neo-tree.command").execute({ toggle = true })
         end,
-        desc = "NeoTree",
+        desc = "Neotree"
       },
-    }
+    },
   },
 
   {
     'echasnovski/mini.files',
     version = '*',
     opts = {
-      -- General options
       options = {
         -- Whether to delete permanently or move into module-specific trash
         permanent_delete = false,
-        -- Whether to use for editing directories
-        use_as_default_explorer = true,
+        use_as_default_explorer = false,
       },
     },
-    keys = { {
-      "<leader>m",
-      function()
-        require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-      end,
-      desc = "Minifiles"
-    } }
+    keys = {
+      {
+        "<leader>m",
+        function()
+          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+        end,
+        desc = "Minifiles"
+      },
+    },
   },
 
   {
