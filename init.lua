@@ -289,6 +289,14 @@ require('lazy').setup({
       { "<leader>z", "<cmd>NoNeckPain<cr>", desc = "NoNeckPain" },
     }
   },
+
+  {
+    'echasnovski/mini.surround',
+    version = '*',
+    event = "VeryLazy",
+    opts = {}
+  },
+
     opts = {
       window = {
         width = 160,
