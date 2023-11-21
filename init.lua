@@ -297,6 +297,12 @@ require('lazy').setup({
     opts = {}
   },
 
+  {
+    'echasnovski/mini.pairs',
+    version = '*',
+    opts = {},
+  },
+
     opts = {
       window = {
         width = 160,
