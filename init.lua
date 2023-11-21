@@ -280,10 +280,15 @@ require('lazy').setup({
   },
 
   {
-    "folke/zen-mode.nvim",
-    keys = {
-      { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" },
+    "shortcuts/no-neck-pain.nvim",
+    version = "*",
+    opts = {
+      width = 160,
     },
+    keys = {
+      { "<leader>z", "<cmd>NoNeckPain<cr>", desc = "NoNeckPain" },
+    }
+  },
     opts = {
       window = {
         width = 160,
