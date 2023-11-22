@@ -629,13 +629,18 @@ vim.opt.laststatus = 3
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set({ 'i' }, 'jk', '<esc>')
-vim.keymap.set({ 'n' }, '<leader>gg', '<cmd>LazyGit<CR>', { desc = 'LazyGit' })
+vim.keymap.set({ 'n' }, '<leader>gg', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
 vim.keymap.set({ 'n' }, '<C-u>', '<C-u>zz')
 vim.keymap.set({ 'n' }, '<C-d>', '<C-d>zz')
-vim.keymap.set({ 'n' }, '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
-vim.keymap.set({ 'n' }, '<leader>w', '<cmd>w<CR>', { desc = 'Write' })
+vim.keymap.set({ 'n' }, '<leader>q', '<cmd>q<cr>', { desc = 'Quit' })
+vim.keymap.set({ 'n' }, '<leader>w', '<cmd>w<cr>', { desc = 'Write' })
 vim.keymap.set({ 'n' }, "<leader>y", "<cmd>let @+ = expand('%:.')<cr>", { desc = "Yank relative path" })
 
+-- Create windows
+vim.keymap.set({ 'n' }, "<leader>\\", "<C-W>s", { desc = "Split horizontally", remap = true })
+vim.keymap.set({ 'n' }, "<leader>|", "<C-W>v", { desc = "Split vertically", remap = true })
+
+-- Move between windows
 vim.keymap.set({ 'n' }, "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
 vim.keymap.set({ 'n' }, "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
 vim.keymap.set({ 'n' }, "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
@@ -668,7 +673,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { desc = 'Diagnostic' })
--- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' }) Not needed for now
+vim.keymap.set('n', '<leader>lD', vim.diagnostic.setloclist, { desc = 'Diagnostics list' })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -832,7 +837,7 @@ local on_attach = function(_, bufnr)
   nmap('gd', require('telescope.builtin').lsp_definitions, 'Goto definition')
   nmap('gr', require('telescope.builtin').lsp_references, 'Goto references')
   nmap('gI', require('telescope.builtin').lsp_implementations, 'Goto implementation')
-  nmap('<leader>t', require('telescope.builtin').lsp_type_definitions, 'Type Definition')
+  nmap('<leader>gt', require('telescope.builtin').lsp_type_definitions, 'Type Definition')
   nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
   nmap('<leader>lw', require('telescope.builtin').lsp_workspace_symbols, 'Workspace Symbols')
   nmap('<leader>lW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Dynamic Symbols')
@@ -840,7 +845,7 @@ local on_attach = function(_, bufnr)
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  nmap('J', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, 'Goto declaration')
