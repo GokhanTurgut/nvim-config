@@ -737,19 +737,11 @@ vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = 'Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
-vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = 'Fuzzily search in current buffer' })
-
+vim.keymap.set('n', '<leader>/', require('telescope.builtin').live_grep, { desc = 'Grep' })
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').git_files, { desc = 'Git Files' })
 vim.keymap.set('n', '<leader>fF', require('telescope.builtin').find_files, { desc = 'Files' })
 vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Help' })
-vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Grep' })
-vim.keymap.set('n', '<leader>fG', ':LiveGrepGitRoot<cr>', { desc = 'Grep on Git Root' })
+vim.keymap.set('n', '<leader>fg', ':LiveGrepGitRoot<cr>', { desc = 'Grep on Git Root' })
 vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = 'Diagnostics' })
 vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = 'Resume' })
 
@@ -841,8 +833,10 @@ local on_attach = function(_, bufnr)
   nmap('gd', require('telescope.builtin').lsp_definitions, 'Goto definition')
   nmap('gr', require('telescope.builtin').lsp_references, 'Goto references')
   nmap('gI', require('telescope.builtin').lsp_implementations, 'Goto implementation')
-  nmap('<leader>lD', require('telescope.builtin').lsp_type_definitions, 'Type Definition')
+  nmap('<leader>t', require('telescope.builtin').lsp_type_definitions, 'Type Definition')
   nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
+  nmap('<leader>lw', require('telescope.builtin').lsp_workspace_symbols, 'Workspace Symbols')
+  nmap('<leader>lW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Dynamic Symbols')
   nmap('<leader>lf', vim.lsp.buf.format, 'Format buffer')
 
   -- See `:help K` for why this keymap
