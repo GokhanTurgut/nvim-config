@@ -503,13 +503,9 @@ require('lazy').setup({
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
+    event = "VeryLazy",
     opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'catppuccin-mocha',
-        component_separators = '|',
-        section_separators = '',
-      },
+      globalstatus = true,
     },
   },
 
@@ -623,6 +619,9 @@ vim.opt.termguicolors = true
 -- Lines and column of context
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
+
+-- Enable global statusline
+vim.opt.laststatus = 3
 
 -- [[ Basic Keymaps ]]
 
