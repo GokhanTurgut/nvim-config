@@ -65,6 +65,12 @@ require('lazy').setup({
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    opts = {
+      menu = {
+        width = 140,
+        height = 20,
+      },
+    },
     keys = {
       { "<leader>hm", "<cmd>lua require('harpoon.mark').add_file()<cr>",        desc = "Mark file" },
       { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>",          desc = "Go to next" },
