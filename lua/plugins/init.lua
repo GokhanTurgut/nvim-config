@@ -61,23 +61,17 @@ return {
 	},
 
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
-			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-		},
+		"nvim-tree/nvim-tree.lua",
+		lazy = false,
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		keys = {
-			{
-				"<leader>e",
-				function()
-					require("neo-tree.command").execute({ toggle = true })
-				end,
-				desc = "Neotree"
-			},
+			{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree" },
 		},
+		opts = {
+			view = {
+				width = 40,
+			},
+		}
 	},
 
 	{
@@ -126,8 +120,8 @@ return {
 			options = {
 				offsets = {
 					{
-						filetype = "neo-tree",
-						text = "Neo-tree",
+						filetype = "NvimTree",
+						text = "NvimTree",
 						highlight = "Directory",
 						text_align = "left",
 					},
@@ -247,12 +241,12 @@ return {
 					local stats = require("lazy").stats()
 					local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
 					dashboard.section.footer.val = "⚡ Neovim loaded "
-					    .. stats.loaded
-					    .. "/"
-					    .. stats.count
-					    .. " plugins in "
-					    .. ms
-					    .. "ms"
+							.. stats.loaded
+							.. "/"
+							.. stats.count
+							.. " plugins in "
+							.. ms
+							.. "ms"
 					pcall(vim.cmd.AlphaRedraw)
 				end,
 			})
@@ -276,12 +270,12 @@ return {
 		event = "VeryLazy",
 		opts = {
 			mappings = {
-				add = "gsa", -- Add surrounding in Normal and Visual modes
-				delete = "gsd", -- Delete surrounding
-				find = "gsf", -- Find surrounding (to the right)
-				find_left = "gsF", -- Find surrounding (to the left)
-				highlight = "gsh", -- Highlight surrounding
-				replace = "gsr", -- Replace surrounding
+				add = "gsa",        -- Add surrounding in Normal and Visual modes
+				delete = "gsd",     -- Delete surrounding
+				find = "gsf",       -- Find surrounding (to the right)
+				find_left = "gsF",  -- Find surrounding (to the left)
+				highlight = "gsh",  -- Highlight surrounding
+				replace = "gsr",    -- Replace surrounding
 				update_n_lines = "gsn", -- Update `n_lines`
 			},
 		}
@@ -303,7 +297,7 @@ return {
 					"help",
 					"alpha",
 					"dashboard",
-					"neo-tree",
+					"nvim-tree",
 					"Trouble",
 					"trouble",
 					"lazy",
@@ -334,7 +328,7 @@ return {
 					"help",
 					"alpha",
 					"dashboard",
-					"neo-tree",
+					"nvim-tree",
 					"Trouble",
 					"trouble",
 					"lazy",
@@ -483,7 +477,7 @@ return {
 				},
 				navic = { enabled = true, custom_bg = "lualine" },
 				neotest = true,
-				neotree = true,
+				nvimtree = true,
 				noice = true,
 				notify = true,
 				semantic_tokens = true,
