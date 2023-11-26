@@ -13,18 +13,18 @@ return {
   --  The configuration is done below. Search for lspconfig to find it below.
   {
     -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
+    "neovim/nvim-lspconfig",
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { "j-hui/fidget.nvim", opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
+      "folke/neodev.nvim",
     },
   },
 
@@ -41,19 +41,19 @@ return {
       },
     },
     keys = {
-      { "<leader>hm", "<cmd>lua require('harpoon.mark').add_file()<cr>",        desc = "Mark file" },
-      { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>",          desc = "Go to next" },
-      { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>",          desc = "Go to previous" },
+      { "<leader>hm", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Mark file" },
+      { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>", desc = "Go to next" },
+      { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", desc = "Go to previous" },
       { "<leader>hh", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Harpoon marks" },
-      { "<leader>1",  "<cmd>lua require('harpoon.ui').nav_file(1)<cr>",         desc = "which_key_ignore" },
-      { "<leader>2",  "<cmd>lua require('harpoon.ui').nav_file(2)<cr>",         desc = "which_key_ignore" },
-      { "<leader>3",  "<cmd>lua require('harpoon.ui').nav_file(3)<cr>",         desc = "which_key_ignore" },
-      { "<leader>4",  "<cmd>lua require('harpoon.ui').nav_file(4)<cr>",         desc = "which_key_ignore" },
-      { "<leader>5",  "<cmd>lua require('harpoon.ui').nav_file(5)<cr>",         desc = "which_key_ignore" },
-      { "<leader>6",  "<cmd>lua require('harpoon.ui').nav_file(6)<cr>",         desc = "which_key_ignore" },
-      { "<leader>7",  "<cmd>lua require('harpoon.ui').nav_file(7)<cr>",         desc = "which_key_ignore" },
-      { "<leader>8",  "<cmd>lua require('harpoon.ui').nav_file(8)<cr>",         desc = "which_key_ignore" },
-      { "<leader>9",  "<cmd>lua require('harpoon.ui').nav_file(9)<cr>",         desc = "which_key_ignore" },
+      { "<leader>1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", desc = "which_key_ignore" },
+      { "<leader>2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", desc = "which_key_ignore" },
+      { "<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", desc = "which_key_ignore" },
+      { "<leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", desc = "which_key_ignore" },
+      { "<leader>5", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", desc = "which_key_ignore" },
+      { "<leader>6", "<cmd>lua require('harpoon.ui').nav_file(6)<cr>", desc = "which_key_ignore" },
+      { "<leader>7", "<cmd>lua require('harpoon.ui').nav_file(7)<cr>", desc = "which_key_ignore" },
+      { "<leader>8", "<cmd>lua require('harpoon.ui').nav_file(8)<cr>", desc = "which_key_ignore" },
+      { "<leader>9", "<cmd>lua require('harpoon.ui').nav_file(9)<cr>", desc = "which_key_ignore" },
     },
   },
 
@@ -71,12 +71,12 @@ return {
       update_focused_file = {
         enable = true,
       },
-    }
+    },
   },
 
   {
-    'echasnovski/mini.files',
-    version = '*',
+    "echasnovski/mini.files",
+    version = "*",
     opts = {
       options = {
         -- Whether to delete permanently or move into module-specific trash
@@ -90,31 +90,31 @@ return {
         function()
           require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
         end,
-        desc = "Minifiles"
+        desc = "Minifiles",
       },
     },
   },
 
   {
-    'akinsho/toggleterm.nvim',
+    "akinsho/toggleterm.nvim",
     version = "*",
     config = true,
-    keys = { { "<leader>t", "<cmd>ToggleTerm size=90 direction=vertical<cr>", desc = "Terminal", } }
+    keys = { { "<leader>t", "<cmd>ToggleTerm size=90 direction=vertical<cr>", desc = "Terminal" } },
   },
 
   {
-    'akinsho/bufferline.nvim',
+    "akinsho/bufferline.nvim",
     version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    dependencies = "nvim-tree/nvim-web-devicons",
     event = "VeryLazy",
     keys = {
       { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "Delete other buffers" },
-      { "<leader>br", "<Cmd>BufferLineCloseRight<CR>",  desc = "Delete buffers to the right" },
-      { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>",   desc = "Delete buffers to the left" },
-      { "<S-h>",      "<cmd>BufferLineCyclePrev<cr>",   desc = "Prev buffer" },
-      { "<S-l>",      "<cmd>BufferLineCycleNext<cr>",   desc = "Next buffer" },
-      { "[b",         "<cmd>BufferLineCyclePrev<cr>",   desc = "Prev buffer" },
-      { "]b",         "<cmd>BufferLineCycleNext<cr>",   desc = "Next buffer" },
+      { "<leader>br", "<Cmd>BufferLineCloseRight<CR>", desc = "Delete buffers to the right" },
+      { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", desc = "Delete buffers to the left" },
+      { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
+      { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+      { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
+      { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
     },
     opts = {
       options = {
@@ -133,14 +133,20 @@ return {
   {
     "nvim-pack/nvim-spectre",
     keys = {
-      { "<leader>R", function() require("spectre").open() end, desc = "Replace (Spectre)" },
+      {
+        "<leader>R",
+        function()
+          require("spectre").open()
+        end,
+        desc = "Replace (Spectre)",
+      },
     },
     opts = {
       mapping = {
-        ['send_to_qf'] = {
+        ["send_to_qf"] = {
           map = "<leader>f",
           cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>",
-          desc = "send all items to quickfix"
+          desc = "send all items to quickfix",
         },
       },
     },
@@ -148,16 +154,14 @@ return {
 
   {
     "echasnovski/mini.bufremove",
-    version = '*',
+    version = "*",
     keys = {
       {
         "<leader>d",
         function()
           local bd = require("mini.bufremove").delete
           if vim.bo.modified then
-            local choice = vim.fn.confirm(
-              ("Save changes to %q?"):format(vim.fn.bufname()),
-              "&Yes\n&No\n&Cancel")
+            local choice = vim.fn.confirm(("Save changes to %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
             if choice == 1 then -- Yes
               vim.cmd.write()
               bd(0)
@@ -183,35 +187,35 @@ return {
     },
     keys = {
       { "<leader>z", "<cmd>NoNeckPain<cr>", desc = "NoNeckPain" },
-    }
+    },
   },
 
   {
-    'echasnovski/mini.surround',
-    version = '*',
+    "echasnovski/mini.surround",
+    version = "*",
     event = "VeryLazy",
     opts = {
       mappings = {
-        add = "gsa",            -- Add surrounding in Normal and Visual modes
-        delete = "gsd",         -- Delete surrounding
-        find = "gsf",           -- Find surrounding (to the right)
-        find_left = "gsF",      -- Find surrounding (to the left)
-        highlight = "gsh",      -- Highlight surrounding
-        replace = "gsr",        -- Replace surrounding
+        add = "gsa", -- Add surrounding in Normal and Visual modes
+        delete = "gsd", -- Delete surrounding
+        find = "gsf", -- Find surrounding (to the right)
+        find_left = "gsF", -- Find surrounding (to the left)
+        highlight = "gsh", -- Highlight surrounding
+        replace = "gsr", -- Replace surrounding
         update_n_lines = "gsn", -- Update `n_lines`
       },
-    }
+    },
   },
 
   {
-    'echasnovski/mini.pairs',
-    version = '*',
+    "echasnovski/mini.pairs",
+    version = "*",
     opts = {},
   },
 
   {
-    'echasnovski/mini.indentscope',
-    version = '*',
+    "echasnovski/mini.indentscope",
+    version = "*",
     event = "VeryLazy",
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
@@ -287,17 +291,17 @@ return {
 
   {
     -- Autocompletion
-    'hrsh7th/nvim-cmp',
+    "hrsh7th/nvim-cmp",
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
 
       -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
+      "hrsh7th/cmp-nvim-lsp",
 
       -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
+      "rafamadriz/friendly-snippets",
 
       -- Adds path completion
       "hrsh7th/cmp-path",
@@ -316,8 +320,7 @@ return {
             vim.api.nvim_create_autocmd("LspAttach", {
               callback = function(args)
                 local buffer = args.buf ---@type number
-                local client = vim.lsp.get_client_by_id(args.data
-                  .client_id)
+                local client = vim.lsp.get_client_by_id(args.data.client_id)
                 on_attach_func(client, buffer)
               end,
             })
@@ -333,19 +336,20 @@ return {
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { "folke/which-key.nvim", opts = {} },
 
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
+    "lewis6991/gitsigns.nvim",
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
+        add = { text = "│" },
+        change = { text = "│" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked = { text = "┆" },
       },
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
@@ -356,21 +360,22 @@ return {
           vim.keymap.set(mode, l, r, opts)
         end
 
-        map('n', '<leader>gb', function() gs.blame_line { full = true } end,
-          { desc = 'Blame line' })
-        map('n', '<leader>gB', gs.toggle_current_line_blame, { desc = 'Toggle blame line' })
+        map("n", "<leader>gb", function()
+          gs.blame_line({ full = true })
+        end, { desc = "Blame line" })
+        map("n", "<leader>gB", gs.toggle_current_line_blame, { desc = "Toggle blame line" })
       end,
     },
   },
 
   {
     -- Theme inspired by Atom
-    'catppuccin/nvim',
+    "catppuccin/nvim",
     lazy = false,
     name = "catppuccin",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'catppuccin-mocha'
+      vim.cmd.colorscheme("catppuccin-mocha")
     end,
     opts = {
       integrations = {
@@ -413,7 +418,7 @@ return {
 
   {
     -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
+    "nvim-lualine/lualine.nvim",
     -- See `:help lualine.txt`
     event = "VeryLazy",
     opts = {
@@ -423,32 +428,32 @@ return {
 
   {
     -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
+    "lukas-reineke/indent-blankline.nvim",
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
-    main = 'ibl',
+    main = "ibl",
     opts = {},
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { "numToStr/Comment.nvim", opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
     dependencies = {
-      'nvim-lua/plenary.nvim',
+      "nvim-lua/plenary.nvim",
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
       -- Only load if `make` is available. Make sure you have the system
       -- requirements installed.
       {
-        'nvim-telescope/telescope-fzf-native.nvim',
+        "nvim-telescope/telescope-fzf-native.nvim",
         -- NOTE: If you are having trouble with this installation,
         --       refer to the README for telescope-fzf-native for more instructions.
-        build = 'make',
+        build = "make",
         cond = function()
-          return vim.fn.executable 'make' == 1
+          return vim.fn.executable("make") == 1
         end,
       },
     },
@@ -456,10 +461,10 @@ return {
 
   {
     -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
+      "nvim-treesitter/nvim-treesitter-textobjects",
     },
-    build = ':TSUpdate',
+    build = ":TSUpdate",
   },
 }
