@@ -242,6 +242,7 @@ require("which-key").register({
   ["<leader>b"] = { name = "Buffers", _ = "which_key_ignore" },
   ["<leader>h"] = { name = "Harpoon", _ = "which_key_ignore" },
   ["<leader>s"] = { name = "Session", _ = "which_key_ignore" },
+  ["<leader>t"] = { name = "Terminal", _ = "which_key_ignore" },
 })
 
 -- mason-lspconfig requires that these setup functions are called in this order
