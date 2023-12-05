@@ -102,8 +102,16 @@ return {
     keys = {
       { "<leader>tt", "<cmd>ToggleTerm size=90 direction=vertical<cr>", desc = "Terminal vertical" },
       { "<leader>th", "<cmd>ToggleTerm size=20 direction=horizontal<cr>", desc = "Terminal horizontal" },
-      { "<leader>tr", "<cmd>TermExec cmd='bundle exec rspec %' size=90 direction=vertical<cr>", desc = "Run Rspec for the buffer" },
-      { "<leader>tj", "<cmd>TermExec cmd='yarn jest %' size=90 direction=vertical<cr>", desc = "Run Jest for the buffer" },
+      {
+        "<leader>tr",
+        "<cmd>TermExec cmd='bundle exec rspec %' size=90 direction=vertical<cr>",
+        desc = "Run Rspec for the buffer",
+      },
+      {
+        "<leader>tj",
+        "<cmd>TermExec cmd='yarn jest %' size=90 direction=vertical<cr>",
+        desc = "Run Jest for the buffer",
+      },
     },
   },
 
@@ -291,7 +299,24 @@ return {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     build = ":Copilot auth",
-    opts = {},
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        panel = {
+          enabled = false,
+        },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<Tab>",
+            next = "<C-j>",
+            prev = "<C-k>",
+          },
+        },
+      })
+    end,
   },
 
   {
@@ -310,33 +335,6 @@ return {
 
       -- Adds path completion
       "hrsh7th/cmp-path",
-
-      -- Adds copilot support
-      {
-        "zbirenbaum/copilot-cmp",
-        dependencies = "copilot.lua",
-        opts = {},
-        config = function(_, opts)
-          local copilot_cmp = require("copilot_cmp")
-          copilot_cmp.setup(opts)
-          -- attach cmp source whenever copilot attaches
-          -- fixes lazy-loading issues with the copilot cmp source
-          local on_attach = function(on_attach_func)
-            vim.api.nvim_create_autocmd("LspAttach", {
-              callback = function(args)
-                local buffer = args.buf ---@type number
-                local client = vim.lsp.get_client_by_id(args.data.client_id)
-                on_attach_func(client, buffer)
-              end,
-            })
-          end
-          on_attach(function(client)
-            if client.name == "copilot" then
-              copilot_cmp._on_insert_enter({})
-            end
-          end)
-        end,
-      },
     },
   },
 
