@@ -310,9 +310,9 @@ return {
           auto_trigger = true,
           debounce = 75,
           keymap = {
-            accept = "<Tab>",
-            next = "<C-j>",
-            prev = "<C-k>",
+            accept = "<M-l>",
+            next = "<M-n>",
+            prev = "<M-p>",
           },
         },
       })
