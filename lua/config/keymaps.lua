@@ -17,6 +17,7 @@ vim.keymap.set({ "n" }, "<leader>w", "<cmd>w<cr>", { desc = "Write" })
 
 -- Yank relative path
 vim.keymap.set({ "n" }, "<leader>y", "<cmd>let @+ = expand('%:.')<cr>", { desc = "Yank relative path" })
+vim.keymap.set({ "n" }, "<leader>Y", "<cmd>let @+ = expand('%:t')<cr>", { desc = "Yank name" })
 
 -- Better indentation
 vim.keymap.set({ "v" }, "<", "<gv")
