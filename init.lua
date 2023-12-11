@@ -75,6 +75,8 @@ require("telescope").setup({
 
 -- Enable telescope fzf native, if installed
 pcall(require("telescope").load_extension, "fzf")
+-- Enable telescope grep args, if installed
+pcall(require("telescope").load_extension("live_grep_args"))
 
 -- Telescope live_grep in git root
 -- Function to find the git root directory based on the current buffer's path
@@ -115,7 +117,7 @@ vim.api.nvim_create_user_command("LiveGrepGitRoot", live_grep_git_root, {})
 -- See `:help telescope.builtin`
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "Find recently opened files" })
 vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "Find existing buffers" })
-vim.keymap.set("n", "<leader>/", require("telescope.builtin").live_grep, { desc = "Grep" })
+vim.keymap.set("n", "<leader>/",  ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Grep" })
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").git_files, { desc = "Git Files" })
 vim.keymap.set("n", "<leader>fF", require("telescope.builtin").find_files, { desc = "Files" })
 vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "Help" })
