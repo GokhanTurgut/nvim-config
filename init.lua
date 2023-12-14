@@ -314,6 +314,14 @@ require("lspconfig").rubocop.setup({
   root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
 })
 
+require("lspconfig").sorbet.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "ruby" },
+  cmd = { "bundle", "exec", "srb", "typecheck", "--lsp" },
+  root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
+})
+
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require("cmp")
