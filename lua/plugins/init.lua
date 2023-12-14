@@ -81,7 +81,12 @@ return {
       options = {
         -- Whether to delete permanently or move into module-specific trash
         permanent_delete = false,
-        use_as_default_explorer = false,
+      },
+      windows = {
+        -- Width of focused window
+        width_focus = 60,
+        -- Width of non-focused window
+        width_nofocus = 20,
       },
     },
     keys = {
