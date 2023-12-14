@@ -117,7 +117,12 @@ vim.api.nvim_create_user_command("LiveGrepGitRoot", live_grep_git_root, {})
 -- See `:help telescope.builtin`
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "Find recently opened files" })
 vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "Find existing buffers" })
-vim.keymap.set("n", "<leader>/",  ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Grep" })
+vim.keymap.set(
+  "n",
+  "<leader>/",
+  ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+  { desc = "Grep" }
+)
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").git_files, { desc = "Git Files" })
 vim.keymap.set("n", "<leader>fF", require("telescope.builtin").find_files, { desc = "Files" })
 vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "Help" })
@@ -267,13 +272,6 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
 }
 
 -- Setup neovim lua configuration
@@ -306,6 +304,14 @@ mason_lspconfig.setup_handlers({
       filetypes = (servers[server_name] or {}).filetypes,
     })
   end,
+})
+
+require("lspconfig").rubocop.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "ruby" },
+  cmd = { "bundle", "exec", "rubocop", "--lsp" },
+  root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
 })
 
 -- [[ Configure nvim-cmp ]]
