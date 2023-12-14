@@ -128,7 +128,7 @@ vim.keymap.set("n", "<leader>fF", require("telescope.builtin").find_files, { des
 vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "Help" })
 vim.keymap.set("n", "<leader>fg", ":LiveGrepGitRoot<cr>", { desc = "Grep on Git Root" })
 vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, { desc = "Diagnostics" })
-vim.keymap.set("n", "<leader>fr", require("telescope.builtin").resume, { desc = "Resume" })
+vim.keymap.set("n", "<leader>r", require("telescope.builtin").resume, { desc = "Resume search" })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
