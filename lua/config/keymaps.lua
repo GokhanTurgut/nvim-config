@@ -27,6 +27,10 @@ vim.keymap.set({ "v" }, ">", ">gv")
 vim.keymap.set({ "n" }, "<leader>\\", "<C-W>s", { desc = "Split horizontally", remap = true })
 vim.keymap.set({ "n" }, "<leader>|", "<C-W>v", { desc = "Split vertically", remap = true })
 
+-- Buffer actions
+vim.keymap.set({ "n" }, "<leader>be", "<cmd>e<cr>", { desc = "Refresh buffers" })
+vim.keymap.set({ "n" }, "<leader>br", "<cmd>edit!<cr>", { desc = "Reset buffers" })
+
 -- Move between windows
 vim.keymap.set({ "n" }, "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
 vim.keymap.set({ "n" }, "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
