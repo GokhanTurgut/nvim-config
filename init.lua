@@ -220,7 +220,7 @@ local on_attach = function(_, bufnr)
 
   nmap("gd", require("telescope.builtin").lsp_definitions, "Goto definition")
   nmap("gr", require("telescope.builtin").lsp_references, "Goto references")
-  nmap("gI", require("telescope.builtin").lsp_implementations, "Goto implementation")
+  nmap("gm", require("telescope.builtin").lsp_implementations, "Goto implementation")
   nmap("<leader>gt", require("telescope.builtin").lsp_type_definitions, "Type Definition")
   nmap("<leader>ls", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
   nmap("<leader>lw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Dynamic Symbols")
