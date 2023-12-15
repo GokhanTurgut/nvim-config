@@ -343,7 +343,7 @@ cmp.setup({
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete({}),
+    ["<C-j>"] = cmp.mapping.complete({}),
     ["<C-l>"] = cmp.mapping.confirm({ select = true }),
   }),
   sources = {
