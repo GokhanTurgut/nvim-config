@@ -226,6 +226,15 @@ local on_attach = function(_, bufnr)
   nmap("<leader>lw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Dynamic Symbols")
   nmap("<leader>lW", require("telescope.builtin").lsp_workspace_symbols, "Workspace Symbols")
   nmap("<leader>le", "<cmd>EslintFixAll<cr>", "Eslint Fix All")
+  nmap("<leader>lo", function()
+    vim.lsp.buf.code_action({
+      apply = true,
+      context = {
+        only = { "source.organizeImports.ts" },
+        diagnostics = {},
+      },
+    })
+  end, "TS Organize Imports")
 
   -- See `:help K` for why this keymap
   nmap("K", vim.lsp.buf.hover, "Hover Documentation")
