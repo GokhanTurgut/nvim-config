@@ -235,6 +235,7 @@ local on_attach = function(_, bufnr)
       },
     })
   end, "TS Organize Imports")
+  nmap("<leader>lr", "<cmd>LspRestart<cr>", "Restart LSP")
 
   -- See `:help K` for why this keymap
   nmap("K", vim.lsp.buf.hover, "Hover Documentation")
