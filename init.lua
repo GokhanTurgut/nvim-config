@@ -225,6 +225,7 @@ local on_attach = function(_, bufnr)
   nmap("<leader>ls", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
   nmap("<leader>lw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Dynamic Symbols")
   nmap("<leader>lW", require("telescope.builtin").lsp_workspace_symbols, "Workspace Symbols")
+  nmap("<leader>le", "<cmd>EslintFixAll<cr>", "Eslint Fix All")
 
   -- See `:help K` for why this keymap
   nmap("K", vim.lsp.buf.hover, "Hover Documentation")
