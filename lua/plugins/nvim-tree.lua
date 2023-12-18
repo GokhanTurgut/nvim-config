@@ -25,8 +25,6 @@ return {
     update_focused_file = {
       enable = true,
     },
+    on_attach = my_on_attach,
   },
-  config = function()
-    require("nvim-tree").setup({ on_attach = my_on_attach })
-  end,
 }
