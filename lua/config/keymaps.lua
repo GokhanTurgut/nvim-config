@@ -13,6 +13,7 @@ vim.keymap.set({ "n" }, "<C-d>", "<C-d>zz")
 
 -- Easy quit and write
 vim.keymap.set({ "n" }, "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
+vim.keymap.set({ "n" }, "<leader>Q", "<cmd>qa<cr>", { desc = "Quit all" })
 vim.keymap.set({ "n" }, "<leader>w", "<cmd>w<cr>", { desc = "Write" })
 
 -- Yank relative path
