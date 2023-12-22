@@ -133,7 +133,7 @@ return {
     "nvim-pack/nvim-spectre",
     keys = {
       {
-        "<leader>R",
+        "<leader>fr",
         function()
           require("spectre").open()
         end,
