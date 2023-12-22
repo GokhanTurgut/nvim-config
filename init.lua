@@ -79,7 +79,7 @@ pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension("live_grep_args"))
 
 -- See `:help telescope.builtin`
-vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "Find recently opened files" })
+vim.keymap.set("n", "<leader>r", require("telescope.builtin").oldfiles, { desc = "Recently opened files" })
 vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "Find existing buffers" })
 vim.keymap.set(
   "n",
@@ -91,7 +91,7 @@ vim.keymap.set("n", "<leader>ff", require("telescope.builtin").git_files, { desc
 vim.keymap.set("n", "<leader>fF", require("telescope.builtin").find_files, { desc = "Files" })
 vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "Help" })
 vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, { desc = "Diagnostics" })
-vim.keymap.set("n", "<leader>r", require("telescope.builtin").resume, { desc = "Resume search" })
+vim.keymap.set("n", "<leader>R", require("telescope.builtin").resume, { desc = "Resume search" })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
