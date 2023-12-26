@@ -26,6 +26,11 @@ return {
       -- Additional lua configuration, makes nvim stuff amazing!
       "folke/neodev.nvim",
     },
+    keys = {
+      { "<leader>lI", "<cmd>LspInfo<cr>", desc = "LSP Info" },
+      { "<leader>lL", "<cmd>LspLog<cr>", desc = "LSP Logs" },
+      { "<leader>lM", "<cmd>Mason<cr>", desc = "Mason" },
+    },
   },
 
   {
