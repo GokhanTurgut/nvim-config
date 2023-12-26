@@ -21,8 +21,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load configuration files
-require("config.options")
-require("config.keymaps")
+require("config")
 
 -- [[ Configure plugins ]]
 -- NOTE: Here is where you install your plugins.
