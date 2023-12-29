@@ -171,3 +171,15 @@ lspconfig.sorbet.setup({
   cmd = { "bundle", "exec", "srb", "typecheck", "--lsp" },
   root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
 })
+
+lspconfig.tsserver.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" },
+  root_dir = require("lspconfig.util").root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git"),
+  single_file_support = true,
+  init_options = {
+    hostInfo = "neovim",
+  },
+})
