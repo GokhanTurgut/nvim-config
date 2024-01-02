@@ -316,15 +316,6 @@ return {
   { "numToStr/Comment.nvim", opts = {} },
 
   {
-    -- Highlight, edit, and navigate code
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-    },
-    build = ":TSUpdate",
-  },
-
-  {
     "alexghergh/nvim-tmux-navigation",
     event = "VeryLazy",
     config = function()
