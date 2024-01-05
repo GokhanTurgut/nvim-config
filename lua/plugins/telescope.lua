@@ -43,7 +43,7 @@ return {
     vim.keymap.set(
       "n",
       "<leader>/",
-      ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+      "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
       { desc = "Grep" }
     )
     vim.keymap.set("n", "<leader>ff", require("telescope.builtin").git_files, { desc = "Git Files" })
