@@ -77,10 +77,8 @@ return {
             bd(0)
           end
         end,
-        desc = "Delete Buffer",
+        desc = "Delete buffer",
       },
-      -- stylua: ignore
-      { "<leader>D", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
     },
   },
 
@@ -199,17 +197,10 @@ return {
     -- See `:help lualine.txt`
     event = "VeryLazy",
     opts = {
-      globalstatus = true,
+      options = {
+        globalstatus = true,
+      },
     },
-  },
-
-  {
-    -- Add indentation guides even on blank lines
-    "lukas-reineke/indent-blankline.nvim",
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = "ibl",
-    opts = {},
   },
 
   -- "gc" to comment visual regions/lines
