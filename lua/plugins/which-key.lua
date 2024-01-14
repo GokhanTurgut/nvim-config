@@ -4,8 +4,8 @@ return {
     -- document existing key chains
     require("which-key").register({
       ["<leader>g"] = { name = "Git", _ = "which_key_ignore" },
-      ["<leader>f"] = { name = "Find", _ = "which_key_ignore" },
-      ["<leader>l"] = { name = "LSP", _ = "which_key_ignore" },
+      ["<leader>f"] = { name = "Find", mode = { "n", "v" }, _ = "which_key_ignore" },
+      ["<leader>l"] = { name = "LSP", mode = { "n", "v" }, _ = "which_key_ignore" },
       ["<leader>b"] = { name = "Buffers", _ = "which_key_ignore" },
       ["<leader>h"] = { name = "Harpoon", _ = "which_key_ignore" },
       ["<leader>s"] = { name = "Session", _ = "which_key_ignore" },
