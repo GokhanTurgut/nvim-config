@@ -20,7 +20,7 @@ return {
   },
   opts = {
     view = {
-      width = 40,
+      width = 42, -- Meaning of everything :)
     },
     update_focused_file = {
       enable = true,
