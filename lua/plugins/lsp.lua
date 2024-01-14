@@ -10,11 +10,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { "j-hui/fidget.nvim", opts = {} },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
       { "folke/neodev.nvim", opts = {} },
     },
     keys = {
@@ -23,15 +19,8 @@ return {
       { "<leader>lM", "<cmd>Mason<cr>", desc = "Mason" },
     },
     config = function()
-      -- [[ Configure LSP ]]
       --  This function gets run when an LSP connects to a particular buffer.
       local on_attach = function(_, bufnr)
-        -- NOTE: Remember that lua is a real programming language, and as such it is possible
-        -- to define small helper and utility functions so you don't have to repeat yourself
-        -- many times.
-        --
-        -- In this case, we create a function that lets us more easily define mappings specific
-        -- for LSP related items. It sets the mode, buffer and description for us each time.
         local nmap = function(keys, func, desc)
           vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
         end
@@ -60,7 +49,7 @@ return {
 
         -- See `:help K` for why this keymap
         nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-        nmap("J", vim.lsp.buf.signature_help, "Signature Documentation")
+        nmap("C-s", vim.lsp.buf.signature_help, "Signature Documentation")
 
         -- Lesser used LSP functionality
         nmap("gD", vim.lsp.buf.declaration, "Goto declaration")
