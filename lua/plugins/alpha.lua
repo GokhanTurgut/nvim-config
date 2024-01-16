@@ -5,24 +5,10 @@ return {
   init = false,
   opts = function()
     local dashboard = require("alpha.themes.dashboard")
-    local logo = [[
-╔───────────────────────────────────────────────────────────────────────╗
-│                                                                       │
-│                                                                       │
-│                                                                       │
-│      ██████╗  ██████╗ ██╗  ██╗██╗  ██╗ █████╗ ███╗   ██╗████████╗     │
-│     ██╔════╝ ██╔═══██╗██║ ██╔╝██║  ██║██╔══██╗████╗  ██║╚══██╔══╝     │
-│     ██║  ███╗██║   ██║█████╔╝ ███████║███████║██╔██╗ ██║   ██║        │
-│     ██║   ██║██║   ██║██╔═██╗ ██╔══██║██╔══██║██║╚██╗██║   ██║        │
-│     ╚██████╔╝╚██████╔╝██║  ██╗██║  ██║██║  ██║██║ ╚████║   ██║        │
-│      ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝        │
-│                                                                       │
-│                                                                       │
-│                                                                       │
-╚───────────────────────────────────────────────────────────────────────╝
-    ]]
+    local ascii_arts = require("../utils.ascii-arts")
+    local random_art = ascii_arts[math.random(#ascii_arts)]
 
-    dashboard.section.header.val = vim.split(logo, "\n")
+    dashboard.section.header.val = vim.split(random_art, "\n")
     -- stylua: ignore
     dashboard.section.buttons.val = {
       dashboard.button("f", "󰈞 " .. " Find file", "<cmd> Telescope find_files <cr>"),
@@ -65,12 +51,12 @@ return {
         local stats = require("lazy").stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
         dashboard.section.footer.val = "⚡ Neovim loaded "
-            .. stats.loaded
-            .. "/"
-            .. stats.count
-            .. " plugins in "
-            .. ms
-            .. "ms"
+          .. stats.loaded
+          .. "/"
+          .. stats.count
+          .. " plugins in "
+          .. ms
+          .. "ms"
         pcall(vim.cmd.AlphaRedraw)
       end,
     })
