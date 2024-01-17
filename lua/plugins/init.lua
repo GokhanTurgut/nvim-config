@@ -75,22 +75,6 @@ return {
   { "numToStr/Comment.nvim", opts = {} },
 
   {
-    "alexghergh/nvim-tmux-navigation",
-    event = "VeryLazy",
-    config = function()
-      local nvim_tmux_nav = require("nvim-tmux-navigation")
-      nvim_tmux_nav.setup({
-        keybindings = {
-          left = "<C-h>",
-          down = "<C-j>",
-          up = "<C-k>",
-          right = "<C-l>",
-        },
-      })
-    end,
-  },
-
-  {
     "windwp/nvim-ts-autotag",
     lazy = true,
     event = "VeryLazy",
