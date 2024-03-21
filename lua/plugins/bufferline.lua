@@ -5,6 +5,7 @@ return {
   event = "VeryLazy",
   keys = {
     { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "Delete other buffers" },
+    { "<leader>bb", "<Cmd>BufferLinePick<CR>", desc = "Pick buffer" },
     { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
     { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
     { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
