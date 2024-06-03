@@ -70,7 +70,7 @@ return {
 
       require("mason-lspconfig").setup_handlers({
         function(server_name)
-          require("lspconfig")[server_name].setup({
+          lspconfig[server_name].setup({
             capabilities = capabilities,
             on_attach = on_attach,
           })
@@ -92,6 +92,18 @@ return {
         filetypes = { "ruby" },
         cmd = { "bundle", "exec", "srb", "typecheck", "--lsp" },
         root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
+      })
+
+      lspconfig.ruby_lsp.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        filetypes = { "ruby" },
+        cmd = { "ruby-lsp" },
+        init_options = {
+          formatter = "none",
+        },
+        root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
+        single_file_support = true,
       })
 
       lspconfig.tsserver.setup({
