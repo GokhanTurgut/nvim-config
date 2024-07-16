@@ -122,7 +122,8 @@ return {
         single_file_support = true,
         init_options = {
           hostInfo = "neovim",
-          maxTsServerMemory = 5120,
+          maxTsServerMemory = 8192,
+          tsserver = { useSyntaxServer = "never" },
         },
       })
     end,
