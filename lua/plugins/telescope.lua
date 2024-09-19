@@ -30,6 +30,15 @@ return {
           },
         },
       },
+      pickers = {
+        oldfiles = {
+          -- Custom settings here
+          only_cwd = false, -- limits to files from the current working directory
+          previewer = false, -- optional, for performance
+          -- Add this to control max results
+          max_results = 1000, -- increase to a large number
+        },
+      },
     })
     -- Enable telescope fzf native, if installed
     pcall(require("telescope").load_extension, "fzf")
