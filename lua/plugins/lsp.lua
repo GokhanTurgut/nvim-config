@@ -94,17 +94,18 @@ return {
         root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
       })
 
-      lspconfig.ruby_lsp.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-        filetypes = { "ruby" },
-        cmd = { "ruby-lsp" },
-        init_options = {
-          formatter = "none",
-        },
-        root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
-        single_file_support = true,
-      })
+      -- File path issue with ruby-lsp, disabling for now
+      -- lspconfig.ruby_lsp.setup({
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      --   filetypes = { "ruby" },
+      --   cmd = { "ruby-lsp" },
+      --   init_options = {
+      --     formatter = "none",
+      --   },
+      --   root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
+      --   single_file_support = true,
+      -- })
 
       lspconfig.tsserver.setup({
         capabilities = capabilities,
