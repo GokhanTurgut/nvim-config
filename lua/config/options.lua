@@ -73,3 +73,6 @@ opt.sidescrolloff = 8
 
 -- Enable global statusline
 opt.laststatus = 3
+
+-- Increase the number of oldfiles and save marks
+opt.shada = "!,'100,<10000,s100,h"
