@@ -15,8 +15,8 @@ return {
     options = {
       offsets = {
         {
-          filetype = "NvimTree",
-          text = "NvimTree",
+          filetype = "neo-tree",
+          text = "NeoTree",
           highlight = "Directory",
           text_align = "left",
         },

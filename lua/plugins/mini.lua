@@ -83,7 +83,7 @@ return {
           "help",
           "alpha",
           "dashboard",
-          "nvim-tree",
+          "neo-tree",
           "Trouble",
           "trouble",
           "lazy",
