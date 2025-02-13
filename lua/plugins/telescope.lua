@@ -75,6 +75,13 @@ return {
       require("telescope").extensions.live_grep_args.live_grep_args({ default_text = getVisualSelection() })
     end, { desc = "Live grep selected text" })
     vim.keymap.set("n", "<leader>ff", tb.git_files, { desc = "Git Files" })
+    vim.keymap.set("n", "<leader>fS", function()
+      local current_file = vim.fn.expand("%:p")
+      local spec_file = current_file:gsub("/app/", "/spec/"):gsub("%.rb$", "_spec.rb")
+      local spec_file_name = vim.fn.fnamemodify(spec_file, ":t")
+
+      tb.git_files({ default_text = spec_file_name })
+    end, { desc = "Search spec" })
     vim.keymap.set("n", "<leader>fF", tb.find_files, { desc = "Files" })
     vim.keymap.set("n", "<leader>fg", tb.grep_string, { desc = "Grep string" })
     vim.keymap.set("v", "<space>fg", function()
