@@ -66,3 +66,15 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous dia
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Diagnostic" })
 vim.keymap.set("n", "<leader>lD", vim.diagnostic.setloclist, { desc = "Diagnostics list" })
+
+-- Find the spec file for Rails
+vim.keymap.set("n", "<leader>fs", function()
+  local current_file = vim.fn.expand('%:p')
+  local spec_file = current_file:gsub('/app/', '/spec/'):gsub('%.rb$', '_spec.rb')
+
+  if vim.fn.filereadable(spec_file) == 1 then
+    vim.cmd('edit ' .. spec_file)
+  else
+    print('Spec file not found: ' .. spec_file)
+  end
+end, { desc = "Spec" })
