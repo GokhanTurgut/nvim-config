@@ -53,6 +53,9 @@ return {
 
         -- Lesser used LSP functionality
         nmap("gD", vim.lsp.buf.declaration, "Goto declaration")
+
+        -- Format buffer using the LSP
+        nmap("<leader>lf", vim.lsp.buf.format, "Format buffer")
       end
 
       -- Change the Diagnostic symbols in the sign column (gutter)
@@ -78,13 +81,6 @@ return {
       })
 
       -- Setup manually installed LSPs
-      lspconfig.rubocop.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-        filetypes = { "ruby" },
-        cmd = { "bundle", "exec", "rubocop", "--lsp" },
-        root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
-      })
 
       lspconfig.sorbet.setup({
         capabilities = capabilities,
@@ -95,17 +91,37 @@ return {
       })
 
       -- File path issue with ruby-lsp, disabling for now
-      -- lspconfig.ruby_lsp.setup({
-      --   capabilities = capabilities,
-      --   on_attach = on_attach,
-      --   filetypes = { "ruby" },
-      --   cmd = { "ruby-lsp" },
-      --   init_options = {
-      --     formatter = "none",
-      --   },
-      --   root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
-      --   single_file_support = true,
-      -- })
+      lspconfig.ruby_lsp.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        filetypes = { "ruby" },
+        cmd = { "/Users/gokhan.turgut/.rbenv/shims/ruby-lsp" },
+        init_options = {
+          initializationOptions = {
+            enabledFeatures = {
+              codeActions = true,
+              codeLens = true,
+              completion = true,
+              definition = true,
+              diagnostics = true,
+              documentHighlights = true,
+              documentLink = true,
+              documentSymbols = true,
+              foldingRanges = true,
+              formatting = true,
+              hover = true,
+              inlayHint = true,
+              onTypeFormatting = true,
+              selectionRanges = true,
+              semanticHighlighting = true,
+              signatureHelp = true,
+              typeHierarchy = true,
+              workspaceSymbol = true,
+            },
+          },
+        },
+        root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
+      })
 
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
