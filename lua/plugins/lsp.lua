@@ -53,9 +53,6 @@ return {
 
         -- Lesser used LSP functionality
         nmap("gD", vim.lsp.buf.declaration, "Goto declaration")
-
-        -- Format buffer using the LSP
-        nmap("<leader>lf", vim.lsp.buf.format, "Format buffer")
       end
 
       -- Change the Diagnostic symbols in the sign column (gutter)
